@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/Logikoz/Dependencies</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Logikoz/Dependencies</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
