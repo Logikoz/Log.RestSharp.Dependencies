@@ -14,13 +14,41 @@ namespace Dependencies.Services
 
         public Method Method { private get; set; }
         public object Body { private get; set; }
-        public bool ContainsParameter { private get; set; } = false;
+
+        /// <summary>
+        /// Use: Parameters.Add(paramName, paramValue);
+        /// </summary>
         public Dictionary<string, string> Parameters { get; set; } = new Dictionary<string, string>();
-        public bool IsAuthorizable { private get; set; } = false;
+
         public IAuthenticator Authenticator { private get; set; }
+
+        /// <summary>
+        /// <para>without '/' before.</para>
+        /// <para>Example: images/test.png</para>
+        /// <para>Result by joining the protocol, url and parameters: <see href="https://Logikoz.net/images/test.png?widht=100&amp;weight=100"/></para>
+        /// </summary>
         public string URN { private get; set; }
+
+        /// <summary>
+        /// HTTP, SMTP, FTP, ...
+        /// <para>Use: <see cref="Protocols"/> struct for choose the protocol.</para>
+        /// <para>Default: <see cref="Protocols.HTTPS"/>.</para>
+        /// </summary>
+        public string Protocol { private get; set; } = Protocols.HTTPS;
+
+        /// <summary>
+        /// Only the URL, without the protocol.
+        /// <para>Example: logikoz.net</para>
+        /// </summary>
         public string URL { private get; set; }
+
         public string UserAgent { private get; set; }
+
+        /// <summary>
+        /// Default values:
+        /// <para>name: Content-Type</para>
+        /// <para>value: application/json</para>
+        /// </summary>
         public (string name, string value) Header { private get; set; } = ("Content-Type", "application/json");
 
         public async Task<IRestResponse> ExecuteTaskAsync()
@@ -31,11 +59,12 @@ namespace Dependencies.Services
             if (Body != null)
                 request.AddJsonBody(Body);
 
-            var client = new RestClient($"{URL}/{URN}{(ContainsParameter ? GetParameters() : string.Empty)}")
+            var client = new RestClient($"{Protocol}://{URL}/{URN}{(Parameters.Count > 0 ? GetParameters() : string.Empty)}")
             {
                 UserAgent = UserAgent
             };
-            if (IsAuthorizable)
+
+            if (Authenticator != default)
                 client.Authenticator = Authenticator;
 
             return await client.ExecuteAsync(request, _cancellationToken.Token);
