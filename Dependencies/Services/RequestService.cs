@@ -30,13 +30,6 @@ namespace Dependencies.Services
         public string URN { private get; set; }
 
         /// <summary>
-        /// HTTP, SMTP, FTP, ...
-        /// <para>Use: <see cref="Protocols"/> struct for choose the protocol.</para>
-        /// <para>Default: <see cref="Protocols.HTTPS"/>.</para>
-        /// </summary>
-        public string Protocol { private get; set; } = Protocols.HTTPS;
-
-        /// <summary>
         /// Only the URL, without the protocol.
         /// <para>Example: logikoz.net</para>
         /// </summary>
@@ -59,7 +52,7 @@ namespace Dependencies.Services
             if (Body != null)
                 request.AddJsonBody(Body);
 
-            var client = new RestClient($"{Protocol}://{URL}/{URN}{(Parameters.Count > 0 ? GetParameters() : string.Empty)}")
+            var client = new RestClient($"{URL}/{URN}{(Parameters.Count > 0 ? GetParameters() : string.Empty)}")
             {
                 UserAgent = UserAgent
             };
