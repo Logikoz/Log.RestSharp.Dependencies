@@ -15,7 +15,7 @@ jobs:
         id: publish_nuget
         uses: rohith/publish-nuget@v2
         with:
-          PROJECT_FILE_PATH: Dependencies.csproj
+          PROJECT_FILE_PATH: Dependencies/Dependencies.csproj
           PACKAGE_NAME: Dependencies
           TAG_COMMIT: true
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
