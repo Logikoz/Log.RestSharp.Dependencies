@@ -21,3 +21,12 @@ jobs:
 
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+        
+      - name: publish on version change
+        id: publish_nuget
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: Dependencies/Dependencies.csproj
+          PACKAGE_NAME: Dependencies
+          TAG_COMMIT: true
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
