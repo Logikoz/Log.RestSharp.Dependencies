@@ -2,15 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/Logikoz/Dependencies</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Logikoz/Dependencies</RepositoryUrl>
-    <Version>1.1.2</Version>
+    <Version>1.1.3</Version>
     <Authors>Logikoz</Authors>
     <Company />
     <PackageTags>.NetStandard, RestSharp</PackageTags>
     <Description>implementation of restsharp.</Description>
+    <PackageId>Log.RestSharp.Dependencies</PackageId>
+    <Product>RestSharp Implementation</Product>
   </PropertyGroup>
 
   <ItemGroup>
