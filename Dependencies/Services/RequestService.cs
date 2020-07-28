@@ -42,12 +42,12 @@ namespace Dependencies.Services
 		/// <para>name: Content-Type</para>
 		/// <para>value: application/json</para>
 		/// </summary>
-		public (string name, string value) Header { private get; set; } = ("Content-Type", "application/json");
+		public Dictionary<string, string> Headers { private get; set; } = new Dictionary<string, string> { { "Content-Type", "application/json" } };
 
 		public async Task<IRestResponse> ExecuteTaskAsync()
 		{
 			var request = new RestRequest(Method);
-			request.AddHeader(Header.name, Header.value);
+			Headers.All(x => { request.AddHeader(x.Key, x.Value); return true; });
 
 			if (Body != null)
 				request.AddJsonBody(Body);
