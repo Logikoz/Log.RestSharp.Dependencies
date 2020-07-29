@@ -1,4 +1,4 @@
-# Dependencies
+# RestSharp Sample Implementation
 Base REST request service for personal projects.
 
 GET samples:
