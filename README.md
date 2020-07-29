@@ -1,5 +1,5 @@
-# RestSharp Simple Implementation
-Base REST request service for personal projects.
+# Simple implementation for RestSharp lib
+Base REST request service for personal projects, writen with .net standard 2.1
 
 GET samples:
 ```csharp
