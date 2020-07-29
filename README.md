@@ -1,4 +1,4 @@
-# RestSharp Sample Implementation
+# RestSharp Simple Implementation
 Base REST request service for personal projects.
 
 GET samples:
