@@ -48,3 +48,5 @@ var response = await new RequestService()
   Body = obj //c # object, no need to serialize.
 }.ExecuteTaskAsync();
 ```
+
+For PUT, Delete, Options... methods, follow the same principle as the examples cited above.
