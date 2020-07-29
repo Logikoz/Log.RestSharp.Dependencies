@@ -37,3 +37,14 @@ request.Parameters.Add("param3", "123");
 
 IRestResponse response = await request.ExecuteTaskAsync();
 ```
+
+POST samples:
+```csharp
+var response = await new RequestService()
+{
+  Method = Method.POST,
+  URL = "https://logikoz.net",
+  URN = "Tests/add",
+  Body = obj //c # object, no need to serialize.
+}.ExecuteTaskAsync();
+```
