@@ -1,12 +1,11 @@
-﻿using RestSharp;
-using RestSharp.Authenticators;
+﻿using RestSharp.Authenticators;
 
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Dependencies.Services
+namespace RestSharp.Dependencies.Services
 {
 	public class RequestService
 	{

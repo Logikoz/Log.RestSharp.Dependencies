@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dependencies", "Dependencies\Dependencies.csproj", "{9641D5D0-2D2C-4D79-A938-FBCEDB878252}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestSharp.Dependencies", "RestSharp.Dependencies\RestSharp.Dependencies.csproj", "{9641D5D0-2D2C-4D79-A938-FBCEDB878252}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependencies.Tests", "Dependencies.Tests\Dependencies.Tests.csproj", "{5589A952-A628-41D7-AD1B-F7D742BE0E36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestSharp.Dependencies.Tests", "RestSharp.Dependencies.Tests\RestSharp.Dependencies.Tests.csproj", "{5589A952-A628-41D7-AD1B-F7D742BE0E36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

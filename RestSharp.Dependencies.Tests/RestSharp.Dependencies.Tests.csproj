@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dependencies\Dependencies.csproj" />
+    <ProjectReference Include="..\RestSharp.Dependencies\RestSharp.Dependencies.csproj" />
   </ItemGroup>
 
 </Project>

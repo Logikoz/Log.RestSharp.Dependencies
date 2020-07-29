@@ -1,11 +1,12 @@
-﻿using Dependencies.Services;
+﻿
+using RestSharp.Dependencies.Services;
 
 using System.Net;
 using System.Threading.Tasks;
 
 using Xunit;
 
-namespace Dependencies.Tests
+namespace RestSharp.Dependencies.Tests
 {
 	public class GetRequestTest
 	{
@@ -19,7 +20,7 @@ namespace Dependencies.Tests
 			{
 				URL = "http://jsonplaceholder.typicode.com",
 				URN = $"posts/{value}",
-				Method = RestSharp.Method.GET
+				Method = Method.GET
 			}
 			.ExecuteTaskAsync();
 
@@ -36,7 +37,7 @@ namespace Dependencies.Tests
 			{
 				URL = "http://jsonplaceholder.typicode.com",
 				URN = $"posts/{value}",
-				Method = RestSharp.Method.GET
+				Method = Method.GET
 			}
 			.ExecuteTaskAsync();
 
