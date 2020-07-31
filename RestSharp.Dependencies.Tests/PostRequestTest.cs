@@ -12,7 +12,7 @@ namespace RestSharp.Dependencies.Tests
 		[Theory]
 		[InlineData("{ \"title\": \"foo\", \"body\": \"bar\", \"userId\": 1 }")]
 		[InlineData("{ \"title\": \"foo2\", \"body\": \"bar2\", \"userId\": 2 }")]
-		public async Task SendPostAndReturnData(string json)
+		public async Task SendPostAndReturnEqual201(string json)
 		{
 			var response = await new RequestService
 			{
@@ -23,6 +23,22 @@ namespace RestSharp.Dependencies.Tests
 			}.ExecuteTaskAsync();
 
 			Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+		}
+
+		[Theory]
+		[InlineData("{ \"title\": \"foo\", \"body\": \"bar, \"userId\": 1 }")]
+		[InlineData("{ \"title\": \"body\": \"bar2\", \"userId\": 2 }")]
+		public async Task SendPostAndReturnEqual500(string json)
+		{
+			var response = await new RequestService
+			{
+				URL = "http://jsonplaceholder.typicode.com",
+				URN = $"posts",
+				Method = Method.POST,
+				Body = json
+			}.ExecuteTaskAsync();
+
+			Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
 		}
 	}
 }
