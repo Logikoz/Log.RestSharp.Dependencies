@@ -25,5 +25,20 @@ namespace RestSharp.Dependencies.Tests
 
 			Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 		}
+
+		[Theory]
+		[InlineData("")]
+		[InlineData(" ")]
+		public async Task DeletePostAndReturnEqual404(string value)
+		{
+			var response = await new RequestService
+			{
+				URL = "http://jsonplaceholder.typicode.com",
+				URN = $"posts/{value}",
+				Method = Method.DELETE
+			}.ExecuteTaskAsync();
+
+			Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+		}
 	}
 }
