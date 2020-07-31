@@ -28,6 +28,8 @@ namespace RestSharp.Dependencies.Tests
 		[Theory]
 		[InlineData("{ \"title\": \"foo\", \"body\": \"bar, \"userId\": 1 }")]
 		[InlineData("{ \"title\": \"body\": \"bar2\", \"userId\": 2 }")]
+		[InlineData("l43k5l34k5l34k5l34")]
+		[InlineData("------------------")]
 		public async Task SendPostAndReturnEqual500(string json)
 		{
 			var response = await new RequestService
