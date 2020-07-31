@@ -45,7 +45,7 @@ var response = await new RequestService()
   Method = Method.POST,
   URL = "https://logikoz.net",
   URN = "Tests/add",
-  Body = obj //c # object, no need to serialize.
+  Body = obj // C# object, no need to serialize.
 }.ExecuteTaskAsync();
 ```
 
