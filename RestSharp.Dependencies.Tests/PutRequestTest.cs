@@ -20,7 +20,7 @@ namespace RestSharp.Dependencies.Tests
 				URN = $"posts/1",
 				Method = Method.PUT,
 				Body = json
-			}.ExecuteTaskAsync();
+			}.SendAsync();
 
 			Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 		}
@@ -38,7 +38,7 @@ namespace RestSharp.Dependencies.Tests
 				URN = $"posts/1",
 				Method = Method.PUT,
 				Body = json
-			}.ExecuteTaskAsync();
+			}.SendAsync();
 
 			Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
 		}

@@ -1,13 +1,13 @@
 ﻿using RestSharp.Authenticators;
+using RestSharp.Dependencies.Services.Interfaces;
 
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace RestSharp.Dependencies.Services
 {
-	public class RequestService
+	public class RequestService : IRequestService
 	{
 		private readonly CancellationTokenSource _cancellationToken = new CancellationTokenSource();
 
@@ -24,7 +24,7 @@ namespace RestSharp.Dependencies.Services
 		/// <summary>
 		/// <para>without '/' before.</para>
 		/// <para>Example: images/test.png</para>
-		/// <para>Result by joining the protocol, url and parameters: <see href="https://Logikoz.net/images/test.png?widht=100&amp;weight=100"/></para>
+		/// <para>parameters from URI: <see href="images/test.png?widht=100&amp;weight=100"/></para>
 		/// </summary>
 		public string URN { private get; set; }
 
@@ -43,10 +43,12 @@ namespace RestSharp.Dependencies.Services
 		/// </summary>
 		public Dictionary<string, string> Headers { private get; set; } = new Dictionary<string, string> { { "Content-Type", "application/json" } };
 
-		public async Task<IRestResponse> ExecuteTaskAsync()
+		public async Task<IRestResponse> SendAsync()
 		{
 			var request = new RestRequest(Method);
-			Headers.All(x => { request.AddHeader(x.Key, x.Value); return true; });
+
+			foreach (var header in Headers)
+				request.AddHeader(header.Key, header.Value);
 
 			if (Body != null)
 				request.AddJsonBody(Body);
@@ -66,8 +68,11 @@ namespace RestSharp.Dependencies.Services
 
 		private string GetParameters()
 		{
-			string parameters = "?";
-			Parameters.ToList().ForEach(param => parameters += $"{param.Key}={param.Value}{(Parameters.Count > 1 ? "&" : string.Empty)}");
+			var parameters = "?";
+
+			foreach (var param in Parameters)
+				parameters += $"{param.Key}={param.Value}{(Parameters.Count > 1 ? "&" : string.Empty)}";
+
 			return parameters;
 		}
 	}

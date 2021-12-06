@@ -22,7 +22,7 @@ namespace RestSharp.Dependencies.Tests
 				URN = $"posts/{value}",
 				Method = Method.GET
 			}
-			.ExecuteTaskAsync();
+			.SendAsync();
 
 			Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 		}
@@ -39,7 +39,7 @@ namespace RestSharp.Dependencies.Tests
 				URN = $"posts/{value}",
 				Method = Method.GET
 			}
-			.ExecuteTaskAsync();
+			.SendAsync();
 
 			Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
 		}

@@ -6,17 +6,18 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/Logikoz/Log.RestSharp.Dependencies</RepositoryUrl>
-    <Version>1.1.5</Version>
+    <Version>1.1.6</Version>
     <Authors>Logikoz</Authors>
     <Company />
     <PackageTags>.NetStandard, RestSharp</PackageTags>
     <Description>implementation of restsharp.</Description>
     <PackageId>Log.RestSharp.Dependencies</PackageId>
     <Product>RestSharp Implementation</Product>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RestSharp" Version="106.11.4" />
+    <PackageReference Include="RestSharp" Version="106.13.0" />
   </ItemGroup>
 
 </Project>

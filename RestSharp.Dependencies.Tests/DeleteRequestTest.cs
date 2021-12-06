@@ -21,7 +21,7 @@ namespace RestSharp.Dependencies.Tests
 				URL = "http://jsonplaceholder.typicode.com",
 				URN = $"posts/{value}",
 				Method = Method.DELETE
-			}.ExecuteTaskAsync();
+			}.SendAsync();
 
 			Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 		}
@@ -36,7 +36,7 @@ namespace RestSharp.Dependencies.Tests
 				URL = "http://jsonplaceholder.typicode.com",
 				URN = $"posts/{value}",
 				Method = Method.DELETE
-			}.ExecuteTaskAsync();
+			}.SendAsync();
 
 			Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
 		}
